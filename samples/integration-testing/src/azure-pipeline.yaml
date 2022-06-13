@@ -26,8 +26,10 @@ stages:
       pool:
         vmImage: ubuntu-20.04
       steps:
-      - task: TerraformCLI@0
-        displayName: 'check terraform version'
+      - task: TerraformInstaller@0
         inputs:
-          command: version
-      
+          terraformVersion: 'latest'
+      - task: TerraformCLI@0
+        inputs:
+          command: 'validate'
+          allowTelemetryCollection: true
