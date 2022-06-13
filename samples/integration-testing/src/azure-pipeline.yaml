@@ -32,8 +32,11 @@ stages:
       - task: TerraformCLI@0
         inputs:
           command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/samples/integration-testing/src'
           allowTelemetryCollection: true
       - task: TerraformCLI@0
         inputs:
           command: 'validate'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/samples/integration-testing/src'
           allowTelemetryCollection: true
+      
